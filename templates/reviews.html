@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamebase - gamer reviews</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
+
     {% for review in reviews %}
         {{ review.game_title }}<br>
         {{ review.review_author }}<br>
         {{ review.game_review }}<br>
         {{ review.would_recommend }}<br>
     {% endfor %}
-</body>
-</html>
+
+{% endblock %}
