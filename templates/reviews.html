@@ -2,10 +2,19 @@
 {% block content %}
 
     {% for review in reviews %}
-        {{ review.game_title }}<br>
-        {{ review.review_author }}<br>
-        {{ review.game_review }}<br>
-        {{ review.would_recommend }}<br>
+        <ul class="collapsible">
+            <li>
+                <div class="collapsible-header">
+                    {{ review.game_title }}<br>
+                    
+                        {{ review.review_author }}<br>
+                        {{ review.game_review }}<br>
+                        Do I recommend this game? {{ review.would_recommend }}<br>
+                    
+                </div>
+            </li>
+        </ul>
+        
     {% endfor %}
 
 {% endblock %}
