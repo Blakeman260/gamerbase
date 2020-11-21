@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('.sidenav').sidenav({edge: "right"});
+    $('.sidenav').sidenav();
     $('.collapsible').collapsible();
     $(".dropdown-trigger").dropdown();
 });
