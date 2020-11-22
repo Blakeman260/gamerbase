@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="center-align">Register</h3>
+
+    <div class="row">
+        <div class="col s12 m8 offset-m2">
+            <form class="card center-align z-depth-5" method="POST" action="{{ url_for('register') }}">
+                <img class="register-pic " src="/static/images/ps4-control.jpg" alt="PS4 Controller">
+                <div class="card-content">
+                    <div class="row">
+                    <!-- Username -->
+                        <div class="input-field col s12">
+                            <input placeholder="Choose your Username" id="username" name="username" 
+                                type="text" class="validate">
+                            <label for="username"><i class="fas fa-headset"></i> Username</label>
+                        </div>
+                    </div>
+                    <!-- Password -->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input placeholder="Password" id="password" name="password" 
+                                type="password" class="validate">
+                            <label for="password"><i class="fas fa-key"></i> Password</label>
+                        </div>
+                    </div>
+                    <!-- Register button -->
+                    <div class="row">
+                        <button type="submit" class="col s12 waves-effect waves-light blue-grey darken-3 btn-large">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

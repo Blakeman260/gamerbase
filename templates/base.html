@@ -15,12 +15,13 @@
     <header>
             <!-- Dropdown Structure -->
         <ul id="dropdown1" class="dropdown-content">
+            <li><a href="{{ url_for('get_reviews') }}">Home</a></li>
             <li><a href="#">Profile</a></li>
             <li><a href="#">Add New Review</a></li>
             <li><a href="#">Manage Categories</a></li>
             <li><a href="#">Log In</a></li>
             <li><a href="#">Log Out</a></li>
-            <li><a href="#">Register</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
         </ul>
         <!-- top navbar -->
         <nav class="nav-extended black darken-1">
@@ -29,20 +30,20 @@
                 <a href="#" class="brand-logo center lime-text accent-3">Gamerbase</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
                 <ul class="left hide-on-med-and-down">
-                    <li><a href="#">Home</a></li>
+                    
                     <li><a class="dropdown-trigger" href="#" data-target="dropdown1">Menu</a></li>
                 </ul>
             </div>
         </nav>
         <!-- mobile side nav bar -->
         <ul class="sidenav" id="mobile-demo">
-            <li><a href="#">Home</a></li>
+            <li><a href="{{ url_for('get_reviews') }}">Home</a></li>
             <li><a href="#">Profile</a></li>
             <li><a href="#">Add New Review</a></li>
             <li><a href="#">Manage Categories</a></li>
             <li><a href="#">Log In</a></li>
             <li><a href="#">Log Out</a></li>
-            <li><a href="#">Register</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
         </ul>
     </header>
     <section class="container">

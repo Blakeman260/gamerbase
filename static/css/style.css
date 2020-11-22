@@ -9,3 +9,7 @@ body{
 .search-bar{
     padding-right:15px;
 }
+
+.register-pic{
+    max-width: 200px;
+}
