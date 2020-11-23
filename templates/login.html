@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="center-align">Register</h3>
+    <h3 class="center-align">Log in</h3>
 
     <div class="row">
         <div class="col s12 m8 offset-m2">
-            <form class="card center-align z-depth-5" method="POST" action="{{ url_for('register') }}">
+            <form class="card center-align z-depth-5" method="POST" action="{{ url_for('login') }}">
                 <img class="register-pic " src="/static/images/ps4-control.jpg" alt="PS4 Controller">
                 <div class="card-content">
                     <div class="row">
                     <!-- Username -->
                         <div class="input-field col s12">
-                            <input placeholder="Choose your Username" id="username" name="username" type="text"
+                            <input placeholder="Players Username" id="username" name="username" type="text"
                                 minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                             <label for="username"><i class="fas fa-headset"></i> Username</label>
                         </div>
@@ -21,7 +21,7 @@
                         <div class="input-field col s12">
                             <input placeholder="Password" id="password" name="password" minlength="5"
                                 maxlength="15" type="password" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                            <label for="password"><i class="fas fa-key"></i> Password</label>
+                            <label for="password"><i class="fas fa-key"></i> Log in</label>
                         </div>
                     </div>
                     <!-- Register button -->
@@ -36,8 +36,7 @@
     <div class="row">
         <div class="col s12">
             <p class="center-align">
-                Player already registered? <a href="{{ url_for('login') }}" class="deep-orange-text text- darken-4">
-                You can click here to log in, and get back to adding your own reviews!</a>
+                New here? <a href="{{ url_for('register') }}" class="deep-orange-text text- darken-4">You can click here to register and get adding your own reviews!</a>
             </p>
         </div>
     </div>
