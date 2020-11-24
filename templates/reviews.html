@@ -16,6 +16,32 @@
                 </div>
             </li>
         </ul>
+        <ul class="collapsible popout">
+            <li>
+                <div class="collapsible-header">
+                    <i class="fas fa-gamepad"></i>
+                    <i class="fas fa-chevron-down"></i>
+                    <strong>{{ review.game_title }}</strong>
+                    {% if review.would_recommend == "yes" %}
+                        <i class="fas fa-grin-hearts"></i>
+                    {% else %}
+                        <i class="fas fa-frown"></i>
+                    {% endif %}
+                </div>
+                <div class="collapsible-body">
+                    <span>
+                    {{ review.review_author }}<br>
+                    <p>{{ review.game_review }}</p><br>
+                    Do I recommend this game? 
+                    {% if review.would_recommend == "yes" %}
+                        <i class="fas fa-grin-hearts"> YES</i>
+                    {% else %}
+                        <i class="fas fa-frown"> No</i>
+                    {% endif %}
+                    </span>
+                </div>
+            </li>
+        </ul>
         
     {% endfor %}
 
