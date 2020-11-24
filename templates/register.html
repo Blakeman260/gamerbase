@@ -13,7 +13,8 @@
                         <div class="input-field col s12">
                             <input placeholder="Choose your Username" id="username" name="username" type="text"
                                 minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                            <label for="username"><i class="fas fa-headset"></i> Username</label>
+                            <label for="username"><i class="fas fa-headset"></i> Username   <i class="fas fa-question-circle tooltipped"
+                             data-position="top" data-tooltip="Username requirements: 5-15 characters, case sensitive, letters and numbers only" ></i></label>
                         </div>
                     </div>
                     <!-- Password -->
@@ -21,7 +22,15 @@
                         <div class="input-field col s12">
                             <input placeholder="Password" id="password" name="password" minlength="5"
                                 maxlength="15" type="password" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                            <label for="password"><i class="fas fa-key"></i> Password</label>
+                            <label for="password"><i class="fas fa-key"></i> Password   <i class="fas fa-question-circle tooltipped"
+                             data-position="top" data-tooltip="Password requirements: 5-15 characters, case sensitive, letters and numbers only" ></i></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input placeholder="What's your favourite console?" id="console" name="console" type="text"
+                                minlength="5" maxlength="15" class="validate" required>
+                            <label for="console"><i class="fas fa-headset"></i> Favourite Console</label>
                         </div>
                     </div>
                     <!-- Register button -->
