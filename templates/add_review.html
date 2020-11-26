@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="card-panel black darken-1 center-align lime-text accent-3 z-depth-5 ">
+        Add a new review                
+    </h3>
+    
+    <div class="row">
+        <form class="col s12 card" method="POST" action="">
+            <div class="card-content">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Choose your Game to Review" id="game_title" type="text" class="validate" required>
+                        <label for="game_title" class="black-text"><i class="fas fa-gamepad black-text"></i>    Game Title</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input placeholder="Put your review here" id="game_review" type="text" class="validate" required>
+                        <label for="game_review" class="black-text">Your Review</label>
+                    </div>
+                    <div class="input-field col s12" required>
+                        <select>
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="1">Xbox One</option>
+                            <option value="2">Playstation 4</option>
+                            <option value="3">Nintendo Switch</option>
+                            <option value="4">PC</option>
+                            <option value="5">Other (Please Specify in review)</option>
+                        </select>
+                        <label class="black-text">Which console do you play this game on?</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <select  required>
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="1">YES!</option>
+                            <option value="2">NOPE</option>
+                        </select>
+                        <label class="black-text">Would you recommend this game?</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
