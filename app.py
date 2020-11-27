@@ -98,9 +98,21 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_review")
+@app.route("/add_review", methods=["GET", "POST"])
 def add_review():
+    if request.method == "POST":
+        review = {
+            "game_title": request.form.get("game_title"),
+            "game_review": request.form.get("game_review"),
+            "console_name": request.form.get("console_name"),
+            "would_recommend": request.form.get("would_recommend"),
+            "review_author": session["user"]
+        }
+        mongo.db.reviews.insert_one(review)
+        flash("Your Review was successfully added!")
+        return redirect(url_for("get_reviews"))
     consoles = mongo.db.consoles.find().sort("console_name", 1)
+
     recommend = mongo.db.recommend.find().sort("would_recommend", 1)
     return render_template("add_review.html", consoles=consoles, recommend=recommend)
 

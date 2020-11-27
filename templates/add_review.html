@@ -6,8 +6,9 @@
     </h3>
     
     <div class="row">
-        <form class="col s12 card" method="POST" action="">
+        <form class="col s12 card" method="POST" action="{{ url_for('add_review') }} ">
             <div class="card-content">
+                <!-- Game Title -->
                 <div class="row">
                     <div class="input-field col s12">
                         <input placeholder="Choose your Game to Review" id="game_title" name="game_title"
@@ -15,6 +16,7 @@
                         <label for="game_title" class="black-text">Game Title</label>
                     </div>
                 </div>
+                <!-- Review field -->
                 <div class="row">
                     <div class="input-field col s12">
                         <textarea id="game_review" name="game_review" minlength="5" maxlength="300" 
@@ -22,6 +24,7 @@
                         <label for="game_review" class="black-text">Your Review</label>
                     </div>
                 </div>
+                <!-- console select bar -->
                 <div class="row">
                     <div class="input-field col s12">
                         <select id="console_name" name="console_name" class="validate" required>
@@ -33,9 +36,10 @@
                         <label for="console_name" class="black-text">Which console do you play this game on?</label>
                     </div>
                 </div>
+                <!-- recommend select bar -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <select  required>
+                        <select id="would_recommend" name="would_recommend" class="validate" required>
                             <option value="" disabled selected>Choose your option</option>
                             {% for recommend in recommend %}
                                 <option value="{{  recommend.would_recommend }}">{{ recommend.would_recommend }}</option>
@@ -43,6 +47,10 @@
                         </select>
                         <label class="black-text">Would you recommend this game?</label>
                     </div>
+                </div>
+                <!-- Submit button -->
+                <div class="row">
+                        <button type="submit" class="col s12 waves-effect waves-light blue-grey darken-3 btn-large">Add My Review</button>
                 </div>
             </div>
         </form>
