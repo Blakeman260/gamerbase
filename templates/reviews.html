@@ -21,6 +21,8 @@
                         Do I recommend this game? 
                         {% if review.would_recommend == "Yes" %}
                             <i class="fas fa-grin-hearts"> YES</i>
+                        {% elif review.would_recommend == "You need to play it, to make your own decision" %}
+                            <i class="fas fa-meh"> You need to play it, to make your own decision</i>
                         {% else %}
                             <i class="fas fa-frown"> No</i>
                         {% endif %}
