@@ -111,6 +111,7 @@ def add_review():
         mongo.db.reviews.insert_one(review)
         flash("Your Review was successfully added!")
         return redirect(url_for("get_reviews"))
+
     consoles = mongo.db.consoles.find().sort("console_name", 1)
     recommend = mongo.db.recommend.find().sort("would_recommend", 1)
     return render_template("add_review.html", consoles=consoles, recommend=recommend)
@@ -118,6 +119,17 @@ def add_review():
 
 @app.route("/edit_review/<review_id>", methods=["GET", "POST"])
 def edit_review(review_id):
+    if request.method == "POST":
+        submit = {
+            "game_title": request.form.get("game_title"),
+            "game_review": request.form.get("game_review"),
+            "console_name": request.form.get("console_name"),
+            "would_recommend": request.form.get("would_recommend"),
+            "review_author": session["user"]
+        }
+        mongo.db.reviews.update({"_id": ObjectId(review_id)}, submit)
+        flash("Your Review was successfully Edited!")
+
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
     consoles = mongo.db.consoles.find().sort("console_name", 1)
     recommend = mongo.db.recommend.find().sort("would_recommend", 1)
