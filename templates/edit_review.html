@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <input placeholder="Choose your Game to Review" id="game_title" name="game_title"
-                            type="text" class="validate" minlength="2" required>
+                            value="{{ review.game_title }}" type="text" class="validate" minlength="2" required>
                         <label for="game_title" class="black-text">Game Title</label>
                     </div>
                 </div>
@@ -20,7 +20,9 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <textarea id="game_review" name="game_review" minlength="5" maxlength="300" 
-                            class="materialize-textarea validate" required></textarea>
+                            class="materialize-textarea validate" required>
+                            {{- review.game_review -}}
+                        </textarea>
                         <label for="game_review" class="black-text">Your Review</label>
                     </div>
                 </div>
@@ -28,9 +30,13 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <select id="console_name" name="console_name" required>
-                            <option value="" disabled selected>Choose Console</option>
+                            <option value="" disabled>Choose Console</option>
                             {% for consoles in consoles %}
-                                <option value="{{ consoles.console_name }}">{{ consoles.console_name }}</option>
+                                {% if consoles.console_name == review.console_name %}
+                                    <option value="{{ consoles.console_name }}" selected>{{ consoles.console_name }}</option>
+                                {% else %}
+                                    <option value="{{ consoles.console_name }}">{{ consoles.console_name }}</option>
+                                {% endif %}
                             {% endfor %}
                         </select>
                         <label for="console_name" class="black-text">Which console do you play this game on?</label>
@@ -42,7 +48,11 @@
                         <select id="would_recommend" name="would_recommend" class="validate" required>
                             <option value="" disabled selected>Choose your option</option>
                             {% for recommend in recommend %}
-                                <option value="{{  recommend.would_recommend }}">{{ recommend.would_recommend }}</option>
+                                {% if recommend.would_recommend == review.would_recommend %}
+                                    <option value="{{  recommend.would_recommend }}" selected>{{ recommend.would_recommend }}</option>
+                                {% else %}
+                                    <option value="{{  recommend.would_recommend }}">{{ recommend.would_recommend }}</option>
+                                {% endif %}
                             {% endfor %}
                         </select>
                         <label class="black-text">Would you recommend this game?</label>
@@ -51,6 +61,10 @@
                 <!-- Submit button -->
                 <div class="row">
                     <button type="submit" class="col s12 waves-effect waves-light blue-grey darken-3 btn-large">Edit My Review</button>
+                </div>
+                <!-- Cancel Edit button-->
+                <div class="row">
+                    <a href="{{ url_for('get_reviews') }}" class="col s12 waves-effect waves-light orange darken-1 btn-large">Cancel</a>
                 </div>
             </div>
         </form>
