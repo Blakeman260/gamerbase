@@ -13,3 +13,7 @@ body{
 .register-pic{
     max-width: 200px;
 }
+
+.btn-small{
+    margin-left: 10px;
+}

@@ -112,9 +112,17 @@ def add_review():
         flash("Your Review was successfully added!")
         return redirect(url_for("get_reviews"))
     consoles = mongo.db.consoles.find().sort("console_name", 1)
-
     recommend = mongo.db.recommend.find().sort("would_recommend", 1)
     return render_template("add_review.html", consoles=consoles, recommend=recommend)
+
+
+@app.route("/edit_review/<review_id>", methods=["GET", "POST"])
+def edit_review(review_id):
+    review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    consoles = mongo.db.consoles.find().sort("console_name", 1)
+    recommend = mongo.db.recommend.find().sort("would_recommend", 1)
+    return render_template(
+        "edit_review.html", review=review, consoles=consoles, recommend=recommend)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="card-panel black darken-1 center-align lime-text accent-3 z-depth-5 ">
+        Edit your review                
+    </h3>
+    
+    <div class="row">
+        <form class="col s12 card" method="POST" action="{{ url_for('edit_review', review_id=review._id) }} ">
+            <div class="card-content">
+                <!-- Game Title -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Choose your Game to Review" id="game_title" name="game_title"
+                            type="text" class="validate" minlength="2" required>
+                        <label for="game_title" class="black-text">Game Title</label>
+                    </div>
+                </div>
+                <!-- Review field -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="game_review" name="game_review" minlength="5" maxlength="300" 
+                            class="materialize-textarea validate" required></textarea>
+                        <label for="game_review" class="black-text">Your Review</label>
+                    </div>
+                </div>
+                <!-- console select bar -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select id="console_name" name="console_name" required>
+                            <option value="" disabled selected>Choose Console</option>
+                            {% for consoles in consoles %}
+                                <option value="{{ consoles.console_name }}">{{ consoles.console_name }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="console_name" class="black-text">Which console do you play this game on?</label>
+                    </div>
+                </div>
+                <!-- recommend select bar -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select id="would_recommend" name="would_recommend" class="validate" required>
+                            <option value="" disabled selected>Choose your option</option>
+                            {% for recommend in recommend %}
+                                <option value="{{  recommend.would_recommend }}">{{ recommend.would_recommend }}</option>
+                            {% endfor %}
+                        </select>
+                        <label class="black-text">Would you recommend this game?</label>
+                    </div>
+                </div>
+                <!-- Submit button -->
+                <div class="row">
+                    <button type="submit" class="col s12 waves-effect waves-light blue-grey darken-3 btn-large">Edit My Review</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
