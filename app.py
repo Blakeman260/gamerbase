@@ -17,14 +17,21 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-
+# for the reviews
 @app.route("/")
 @app.route("/get_reviews)")
 def get_reviews():
     reviews = list(mongo.db.reviews.find())
     return render_template("reviews.html", reviews=reviews)
 
+# for the search bar
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    reviews = list(mongo.db.reviews.find({"$text": {"$search": query}}))
+    return render_template("reviews.html", reviews=reviews)
 
+# for the register page
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -48,7 +55,7 @@ def register():
         return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
 
-
+# for users to login
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -77,7 +84,7 @@ def login():
 
     return render_template("login.html")
 
-
+# Load users profile
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # Grab sessions username from the database
@@ -89,7 +96,7 @@ def profile(username):
         
     return render_template(url_for("login"))
 
-
+# For users to log out
 @app.route("/logout")
 def logout():
     #This is to remove user from session cookies
@@ -97,7 +104,7 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
-
+# To add Reviews
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
     if request.method == "POST":
@@ -116,7 +123,7 @@ def add_review():
     recommend = mongo.db.recommend.find().sort("would_recommend", 1)
     return render_template("add_review.html", consoles=consoles, recommend=recommend)
 
-
+# To edit reviews
 @app.route("/edit_review/<review_id>", methods=["GET", "POST"])
 def edit_review(review_id):
     if request.method == "POST":
@@ -136,7 +143,7 @@ def edit_review(review_id):
     return render_template(
         "edit_review.html", review=review, consoles=consoles, recommend=recommend)
 
-
+# To delete reviews
 @app.route("/delete_review/<review_id>")
 def delete_review(review_id):
     mongo.db.reviews.remove({"_id": ObjectId(review_id)})

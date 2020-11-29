@@ -2,9 +2,25 @@
 {% block content %}
 
     <h3 class="center-align">Gaming reviews</h3>
+    <!-- Search bar -->
+    <div class="row card-panel z-depth-5">
+        <form action="{{ url_for('search') }}" method="POST" class="col s12 sizing">
+            <div class="row valign-wrapper center-align">
+                <div class="input-field col s12 m8">
+                    <i class="fab fa-searchengin prefix"></i>
+                    <input type="text" name="query" id="query" minlength="2" class="validate" required>
+                    <label for="query">Search Reviews</label>
+                </div>
+                <div class="col s12 m4">
+                    <a href="{{ url_for('get_reviews') }}" class="waves-effect waves-light amber darken-3 btn">Reset</a>
+                    <button type="submit" class="waves-effect waves-light lime accent-4 btn">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
 
     {% for review in reviews %}
-
+        <!-- Review header -->
         <ul class="collapsible popout">
             <li class="row">
                 <div class="collapsible-header">
@@ -21,6 +37,7 @@
                         {% endif %}
                     </div>
                 </div>
+                <!-- Review main section -->
                 <div class="collapsible-body">
                     <span>
                         {{ review.review_author }}<br>
