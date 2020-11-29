@@ -13,44 +13,34 @@
 </head>
 <body>
     <header>
-            <!-- Dropdown Structure -->
-        <ul id="dropdown1" class="dropdown-content">
-            <li><a href="{{ url_for('get_reviews') }}">Home</a></li>
-            {% if session.user %}
-                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                <li><a href="{{ url_for('add_review') }}">Add New Review</a></li>
-                <li><a href="#">Manage Categories</a></li>
-                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-            {% else %}
-                <li><a href="{{ url_for('login') }}">Log In</a></li>
-                <li><a href="{{ url_for('register') }}">Register</a></li>
-            {% endif %}
-        </ul>
         <!-- top navbar -->
         <nav class="nav-extended black darken-1">
             <div class="nav-wrapper">
                 <a href="#" class="right lime-text accent-3 search-bar">Search</a>
+                <div class="input-field inline grey lighten-1 z-depth-5 right">
+                    <input id="email_inline" type="email" class=" black-text validate">
+                    <label for="email_inline">Search</label>
+                </div>
                 <a href="#" class="brand-logo center lime-text accent-3">Gamerbase</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
-                <ul class="left hide-on-med-and-down">
-                    
-                    <li><a class="dropdown-trigger lime-text accent-3" href="#" data-target="dropdown1">Menu</a></li>
+                <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large lime-text accent-3"><i class="material-icons">Menu</i></a>
+                <ul id="slide-out" class="sidenav">
+                    <li><a href="{{ url_for('get_reviews') }}">Home</a></li>
+                    {% if session.user %}
+                        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                        <li><a href="{{ url_for('add_review') }}">Add New Review</a></li>
+                        <li><a href="#">Manage Categories</a></li>
+                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('login') }}">Log In</a></li>
+                        <li><a href="{{ url_for('register') }}">Register</a></li>
+                    {% endif %}
                 </ul>
+                
             </div>
         </nav>
         <!-- mobile side nav bar -->
-        <ul class="sidenav" id="mobile-demo">
-            <li><a href="{{ url_for('get_reviews') }}">Home</a></li>
-            {% if session.user %}
-                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                <li><a href="{{ url_for('add_review') }}">Add New Review</a></li>
-                <li><a href="#">Manage Categories</a></li>
-                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-            {% else %}
-                <li><a href="{{ url_for('login') }}">Log In</a></li>
-                <li><a href="{{ url_for('register') }}">Register</a></li>
-            {% endif %}
-        </ul>
+
+        
     </header>
 
     <section>
