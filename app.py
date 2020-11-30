@@ -102,7 +102,7 @@ def logout():
     #This is to remove user from session cookies
     flash("You have been logged out")
     session.pop("user")
-    return redirect(url_for("login"))
+    return redirect(url_for("get_reviews"))
 
 # To add Reviews
 @app.route("/add_review", methods=["GET", "POST"])

@@ -1,19 +1,28 @@
-body{
-    background-color: greenyellow;
+/******Nav bar******/
+nav{
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .sidenav{
     background-color: greenyellow;
 }
 
-.search-bar{
-    padding-right:15px;
+/******Search bar******/
+.sizing{
+    height: 70px;
+}
+/******Body******/
+body{
+    background-color: greenyellow;
+}
+/******Register and Log in page picture******/
+.register-login-pic{
+    max-width: 300px;
+    padding-top:10px;
 }
 
-.register-pic{
-    max-width: 200px;
-}
-
+/******Buttons on review header******/
 .btn-small{
     margin-left: 10px;
 }
