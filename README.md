@@ -155,43 +155,40 @@ Now, Their is no message, to tell users what specific format they can and can't 
 
 Learning from this, I added a hover feature next to the username and password labels, so that if they did enter a wrong character, or even not enough or too many characters, they can easily find the relevant information, making it user friendly.
 
+I ran my code through validators, including HTML, CSS, Javascript and Python
+![Help sign on register page](/static/images/python-valid.jpg)
+![Help sign on register page](/static/images/js-valid.jpg)
 
 
+## Deployment
 
-## 
+## Credits
+Content, the content used in the reviews, was ade up from genuine users admitting their own reviews
 
-Testing
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+### The media 
+the media used, the 2 pictures were taken from Google images
 
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
+## Acknowledgements
+The idea from this project, as stated above, was a extensive thought about the project idea for the receipe site, where people upload their own receipes to share to others, this inspired about people uploading their own reviews on games for people to read.
 
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
+## Deployment
+Do to the site being a python application, it won't run on GitHub alone, so the python app itself, is deployed via 
+Heroku. The website is designed with github, and linked and pushed up to Heroku.
 
-Contact form:
-Go to the "Contact Us" page
-Try to submit the empty form and verify that an error message about the required fields appears
-Try to submit the form with an invalid email address and verify that a relevant error message appears
-Try to submit the form with all inputs valid and verify that a success message appears.
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
+The Config vars Have their own specific requirements which are stored on herkou, so it knows 
+how it needs to run the application, including the Secret key, ass it's a database, so not everyone should 
+have access to the database itself.
+ 
+Due to sensitive information not being uploaded to Github and it being stored in heroku, if someone 
+wanted to run this application on their own browswer, without the use of heroku, they would have to do the following:
+The IP is set to (0,0,0,0)
+Port is 5000
+They would have to encorporate their own secret key 
+ the MONGO_URI is mongodb+srv://root:Ella@myfirstcluster.lj9xd.mongodb.net/gamerbase?retryWrites=true&w=majority
+ and the MONGO_DBNAME is gamerbase
 
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
+## Links
+The link to the deployed app on Heroku is http://gamerbase-base.herokuapp.com/
 
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+The link for the git hub repositories is https://github.com/Blakeman260/gamerbase
 
-Deployment
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
-
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-
-Different values for environment variables (Heroku Config Vars)?
-Different configuration files?
-Separate git branch?
-In addition, if it is not obvious, you should also describe how to run your code locally.
-
-Credits
-Content
-The text for section Y was copied from the Wikipedia article Z
-Media
-The photos used in this site were obtained from ...
-Acknowledgements
-I received inspiration for this project from X
