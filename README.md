@@ -159,6 +159,7 @@ I ran my code through validators, including HTML, CSS, Javascript and Python
 ![Help sign on register page](/static/images/python-valid.jpg)
 ![Help sign on register page](/static/images/js-valid.jpg)
 
+To make sure the site works fine on mobile and tablet devices, I have tested my website out, on various screen sizes including: -Standard computer screen - 1880 x 581 px -iPad 768 x 1024 px -iPhone 6/7/8 - 375 x 667 px
 
 ## Deployment
 
